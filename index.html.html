@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan Untukmu Ni Mbak Nuha Yang Tersayang ❤️</title>
+    <style>
+        /* --- CSS STYLING --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to bottom, #1a2a6c, #b21f1f, #fdbb2d);
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Efek Gelembung Latar Belakang */
+        .bubbles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: float Up 8s infinite linear;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-110vh) scale(1.2); opacity: 0; }
+        }
+
+        /* Konten Utama */
+        .container {
+            z-index: 2;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        /* Bagian Amplop (Halaman Depan) */
+        .envelope-wrapper {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 40px 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.5s ease;
+        }
+
+        .envelope-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .btn-open {
+            background-color: #ff4d79;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 77, 121, 0.4);
+            transition: 0.3s;
+        }
+
+        .btn-open:hover {
+            background-color: #ff1a53;
+            transform: translateY(-2px);
+        }
+
+        /* Bagian Surat (Muncul setelah diklik) */
+        .letter-wrapper {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            color: #333;
+            text-align: left;
+            max-height: 70vh;
+            overflow-y: auto;
+            display: none; /* Sembunyi di awal */
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .avatar-area {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .avatar-area img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+        }
+
+        .letter-text {
+            line-height: 1.6;
+            font-size: 15px;
+            white-space: pre-line; /* Menjaga spasi baris baru */
+        }
+
+        .letter-text b {
+            color: #d63031;
+        }
+
+        /* Kustomisasi Scrollbar Surat */
+        .letter-wrapper::-webkit-scrollbar {
+            width: 6px;
+        }
+        .letter-wrapper::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bubbles" id="bubblesContainer"></div>
+
+    <div class="container">
+        <div class="envelope-wrapper" id="envelopeSection">
+            <div class="envelope-icon">📩</div>
+            <h2 style="color: white; margin-bottom: 20px; font-size: 1.2rem;">Aloo kamu, <br> Coba buka ini yaa dari aku 🤗</h2>
+            <button class="btn-open" onclick="openLetter()">Buka Surat ini ya cantik 💗</button>
+        </div>
+
+        <div class="letter-wrapper" id="letterSection">
+            <div class="avatar-area">
+                <img src="https://api.iconify.design/fluent-emoji:panda.svg" alt="Panda Avatar">
+                <h3 style="margin-top: 5px; color: #555;">Aloo Kamuul kaka imut ✨💖</h3>
+            </div>
+            
+            <div class="letter-text">
+                Tetap semangat yaa! Aku tau kamu kuat, meskipun masalah yang datang ngga selalu ringan. Aku selalu ada di sini buat dengerin kamu, nemenin kamu, meskipun cuma dari jauh. 
+
+                Aku ngerti kalau kadang suasana bikin kamu capek dan gk mood, tapi jangan nyerah yaa! Aku percaya kamu bisa lewatin semuanya. Aku mungkin belum bisa bantu banyak, tapi aku bakal selalu ada buat kamu, kapan pun kamu butuh 🫶.
+
+                <i>Every day, I'm so proud of you.</i> maafin kekurangan ku ya, dan maaf juga gk bisa kaya cowo lain Makasih ya udah nerima semua kekurangan aku,  dan ngobrol sama kamu tuh bikin aku seneng banget. Walaupun ngga tiap hari rasanya bahagia, tapi selama masih ada kamu, semuanya terasa lebih baik. Jadi, kalau ada apa-apa, cerita aja ke aku, jangan dipendem sendiri 🥺.
+
+                <b>Terakhir,</b>
+                Aku sayaangg banget samaa kamuu! 🌹
+                
+                <span style="font-family: 'Courier New', Courier, monospace; font-weight: bold; display: block; margin-top: 15px; text-align: center; color: #ff4d79;">I lovee yoouu 😭❤️✨</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 1. Fungsi untuk Membuka Surat
+        function openLetter() {
+            const envelope = document.getElementById('envelopeSection');
+            const letter = document.getElementById('letterSection');
+            
+            // Efek transisi menghilang
+            envelope.style.opacity = '0';
+            envelope.style.transform = 'scale(0.8)';
+            
+            setTimeout(() => {
+                envelope.style.display = 'none';
+                letter.style.display = 'block';
+                // Putar musik jika ada (opsional)
+            }, 500);
+        }
+
+        // 2. Logika Pembuat Gelembung Latar Belakang otomatis
+        const bubblesContainer = document.getElementById('bubblesContainer');
+        const bubbleCount = 15;
+
+        for (let i = 0; i < bubbleCount; i++) {
+            const bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            
+            // Ukuran acak
+            const size = Math.random() * 40 + 10; // antara 10px sampai 50px
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            
+            // Posisi horizontal acak
+            bubble.style.left = `${Math.random() * 100}%`;
+            
+            // Waktu mulai dan durasi animasi acak agar alami
+            bubble.style.animationDelay = `${Math.random() * 8}s`;
+            bubble.style.animationDuration = `${Math.random() * 5 + 5}s`; // antara 5s sampai 10s
+            
+            bubblesContainer.appendChild(bubble);
+        }
+    </script>
+</body>
+</html>
